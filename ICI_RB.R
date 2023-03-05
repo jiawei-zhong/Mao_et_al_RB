@@ -43,7 +43,7 @@ c_go_correlation$ONTOLOGY <- gsub(pattern = "GO:",replacement = "",c_go_correlat
 
 
 
-probe_anno <- read.table("/home/zjw/zjw/20210927retinoblastoma/GPL28718_HGU133Plus2_Hs_ENTREZG_desc.annot.txt")
+probe_anno <- read.table("~/zjw/20210927retinoblastoma/GPL28718_HGU133Plus2_Hs_ENTREZG_desc.annot.txt")
 colnames(probe_anno) <- c("probe_ID","ENTREZID")
 probe_anno <- merge(probe_anno,bitr(geneID = probe_anno[,2],fromType = "ENTREZID",toType = "SYMBOL",OrgDb = org.Hs.eg.db),by="ENTREZID")
 
@@ -52,7 +52,7 @@ probe_anno <- merge(probe_anno,bitr(geneID = probe_anno[,2],fromType = "ENTREZID
  
 
 ## 28
-immune_cell_signature <- read.table("/home/zjw/zjw/20210927retinoblastoma/28_immune_gene_list.tsv",sep = "\t",header = 1)
+immune_cell_signature <- read.table("~/zjw/20210927retinoblastoma/28_immune_gene_list.tsv",sep = "\t",header = 1)
 
 
 
@@ -76,7 +76,7 @@ names(immune_cell_signature_list)<- unique(immune_cell_signature$Cell.type)
 
 
 
-risk_factor <- read.xlsx("/home/zjw/zjw/20210927retinoblastoma/Supplementary_data1_from_Liu_et_al.xlsx",sheetIndex = 1)[1:102,1:14]
+risk_factor <- read.xlsx("~/zjw/20210927retinoblastoma/Supplementary_data1_from_Liu_et_al.xlsx",sheetIndex = 1)[1:102,1:14]
 risk_factor <- risk_factor[,c(1,4,7,8,9,10,11,12)]
 risk_factor$Germline.RB1.mutation[risk_factor$Germline.RB1.mutation=="Yes/Mosaicism"] <- "yes"
 risk_factor[risk_factor=="NA"] <- NA
